@@ -1,4 +1,6 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
+
+
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./components/Hompage/HomePage";
 import AdminDashboard from "./components/Admin/AdminDashboard"
@@ -26,13 +28,14 @@ import ShoppingCart from "./components/User/Products/ShoppingCart"
 import Login from "./components/User/Forms/Login";
 import RegisterForm from "./components/User/Forms/RegisterForm";
 import CustomerProfile from "./components/User/Profile/CustomerProfile";
+import AdminRoute from "./components/AuthRoute/AdminRoute";
 
 const  App = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="admin" element={<AdminDashboard />}>
+        <Route path="admin" element={<AdminRoute><AdminDashboard/></AdminRoute>}>
           {/* products */}
           <Route path="" element={<OrdersList />} />
           <Route path="add-product" element={<AddProduct />} />

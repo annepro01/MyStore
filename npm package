@@ -1,0 +1,3 @@
+<!-- install redux with existing app
+npm i react-redux - binding the redux toolkit
+npm i axios for http request -->

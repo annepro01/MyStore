@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import ErrorComponent from "../../ErrorMsg/ErrorMsg";
+import { registerUserAction } from "../../../redux/slices/users/userSlice";
+
 
 const RegisterForm = () => {
+
+  const dispatch = useDispatch();
   //dispatch
   const [formData, setFormData] = useState({
     fullname: "",
@@ -13,11 +18,13 @@ const RegisterForm = () => {
   //---onchange handler----
   const onChangeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    
   };
 
   //---onsubmit handler----
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    dispatch(registerUserAction({fullname,email,password}))
   };
   //select store data
 
