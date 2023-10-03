@@ -7,17 +7,19 @@ import { resetErrAction } from "../globalActions/globalAction";
 
 //initialState
 const initialState = {
-    loading : false,
+  loading: false,
+  error: null,
+  users: [],
+  user: {},
+  profile: {},
+  userAuth: {
+    loading: false,
     error: null,
-    users: [],
-    user:{},
-    profile: {},
-    userAuth: {
-        loading: false,
-        error: null,
-        userInfo: {}
-    }
-}
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+  },
+};
 //register action
 export const registerUserAction = createAsyncThunk(
   "users/register",
